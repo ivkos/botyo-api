@@ -67,8 +67,10 @@ class HelloCommand extends CommandModule
         return true;
     }
 
-    execute(msg, args) {
+    async execute(msg, args) {
         return this.getRuntime().getChatApi().sendMessage("Hello world!", msg.threadID);
     }
 }
+
+module.exports = HelloCommand;
 ```
