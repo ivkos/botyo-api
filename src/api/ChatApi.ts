@@ -85,21 +85,21 @@ export abstract class ChatApi
     /**
      * Sends a message.
      *
-     * @param {string|object} message plain string message or message object
      * @param {FacebookId} threadId the thread ID
+     * @param {string|object} message plain string message or message object
      * @return {Promise<Message>} promise with message object representing the sent message
      * @since 2.0.0
      */
-    abstract async sendMessage(message: Message | string, threadId: FacebookId): Promise<Message>
+    abstract async sendMessage(threadId: FacebookId, message: Message | string): Promise<Message>
 
     /**
      * Changes the chat's color.
      *
-     * @param {string} color color hex string
      * @param {FacebookId} threadId
+     * @param {string} color color hex string
      * @since 2.0.0
      */
-    abstract async changeThreadColor(color: string, threadId: FacebookId): Promise<void>
+    abstract async changeThreadColor(threadId: FacebookId, color: string): Promise<void>
 
     /**
      * Returns info about the thread.
@@ -180,9 +180,9 @@ export abstract class ChatApi
     /**
      * Sets a reaction to a message.
      *
-     * @param {Reaction} reaction the reaction
      * @param {string} messageId the message ID
+     * @param {Reaction|string} reaction the reaction
      * @since 2.0.0
      */
-    abstract async setMessageReaction(reaction: Reaction, messageId: string): Promise<void>;
+    abstract async setMessageReaction(messageId: string, reaction: Reaction | string): Promise<void>;
 }

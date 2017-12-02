@@ -1,6 +1,6 @@
 {
   "name": "botyo-api",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "Botyo API",
   "main": "build/index.js",
   "types": "build/index.d.ts",
