@@ -1,6 +1,6 @@
 {
   "name": "botyo-api",
-  "version": "2.0.0-alpha.2",
+  "version": "2.0.0-alpha.3",
   "description": "Botyo API",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -23,8 +23,11 @@
     "url": "https://github.com/ivkos/botyo-api/issues"
   },
   "homepage": "https://github.com/ivkos/botyo-api#readme",
+  "dependencies": {
+    "@types/mongodb": "^2.2.16",
+    "@types/winston": "^2.3.7"
+  },
   "devDependencies": {
-    "@types/winston": "^2.3.7",
     "rimraf": "^2.6.2",
     "typescript": "^2.6.1"
   },
