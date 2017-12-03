@@ -48,14 +48,16 @@ export type UserInfoResult = {
 export type FacebookId = string | number;
 
 export type ThreadInfo = {
+    threadID: FacebookId,
+    threadName: string,
     participantIDs: FacebookId[],
-    name: string,
-    snippet: string,
+    unreadCount: number,
     messageCount: number,
-    emoji: { emoji: string },
-    nicknames: { [index: string]: string } | null,
-    color: string,
-    lastReadTimestamp: number
+    threadType: string,
+    topEmojis: string[],
+    emoji: string | null,
+    color: string | null,
+    nicknames: { [index: string]: string },
 }
 
 export const enum Reaction
