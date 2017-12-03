@@ -11,6 +11,7 @@ export * from "./api/modules/Module"
 export * from "./api/modules/ScheduledTaskModule"
 
 export * from "./api/util/AsyncResolvable"
+export * from "./api/util/ChatThreadUtils"
 export * from "./api/util/EmptyAsyncResolvable"
 export * from "./api/util/Logger"
 export * from "./api/util/ModuleAwareRuntime"

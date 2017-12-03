@@ -3,6 +3,7 @@ import { LoggerInstance } from "winston";
 import { ChatApi } from "../ChatApi";
 import { ContextualizableModuleConfiguration } from "../config/ContextualizableModuleConfiguration";
 import { ModuleConstructor } from "./ModuleConstructor";
+import { ChatThreadUtils } from "./ChatThreadUtils";
 
 /**
  * @since 2.0.0
@@ -12,7 +13,8 @@ export class ModuleAwareRuntime
     constructor(private readonly moduleConstructor: ModuleConstructor,
                 private readonly chatApi: ChatApi,
                 private readonly applicationConfiguration: ApplicationConfiguration,
-                private readonly logger: LoggerInstance)
+                private readonly logger: LoggerInstance,
+                private readonly chatThreadUtils: ChatThreadUtils)
     {}
 
     /**
@@ -59,4 +61,15 @@ export class ModuleAwareRuntime
     {
         return this.logger;
     };
+
+    /**
+     * Returns an instance of ChatThreadUtils.
+     *
+     * @return {ChatThreadUtils}
+     * @since 2.0.0
+     */
+    getChatThreadUtils(): ChatThreadUtils
+    {
+        return this.chatThreadUtils;
+    }
 }
