@@ -5,7 +5,7 @@ import { AsyncResolvable, AsyncResolvableServiceIdentifier } from "./AsyncResolv
  */
 export abstract class EmptyAsyncResolvable extends AsyncResolvable<void>
 {
-    static readonly EMPTY_IDENTIFIER = Symbol("EMPTY_IDENTIFIER");
+    static readonly EMPTY_IDENTIFIER = Symbol.for("BOTYO_EMPTY_IDENTIFIER");
 
     getServiceIdentifier(): AsyncResolvableServiceIdentifier<void>
     {

@@ -4,4 +4,4 @@
  * @type {symbol}
  * @since 2.0.0
  */
-export const MongoDb = Symbol("MongoDb");
+export const MongoDb = Symbol.for("BOTYO_MONGODB");
