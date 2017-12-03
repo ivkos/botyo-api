@@ -1,5 +1,8 @@
 import { FacebookId, Message } from "../ChatApi";
 
+/**
+ * @since 2.0.0
+ */
 export abstract class ChatThreadUtils
 {
     /**
@@ -79,6 +82,7 @@ export abstract class ChatThreadUtils
      * @param {string} addressee
      * @return {FacebookId|undefined} the ID of the user, or undefined if there are no matches over a certain
      *                                similarity threshold
+     * @since 2.0.0
      */
     abstract getParticipantIdByAddressee(threadId: FacebookId, addressee: string): FacebookId | undefined;
 
