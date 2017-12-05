@@ -1,5 +1,6 @@
 import { Module } from "./Module";
 import { Message } from "../ChatApi";
+import SymbolUtil from "../util/SymbolUtil";
 
 /**
  * Defines a command that users can send to the bot. Commands must begin with a prefix that can be configured
@@ -11,6 +12,8 @@ import { Message } from "../ChatApi";
  */
 export abstract class CommandModule extends Module
 {
+    static readonly SYMBOL = SymbolUtil.forClass(CommandModule);
+
     /**
      * Returns the command this module acts on. This string should not include the command prefix.
      *

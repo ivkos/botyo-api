@@ -1,4 +1,5 @@
 import { Module } from "./Module";
+import SymbolUtil from "../util/SymbolUtil";
 
 /**
  * Defines a task that is executed periodically or upon the start of the bot.
@@ -7,6 +8,8 @@ import { Module } from "./Module";
  */
 export abstract class ScheduledTaskModule extends Module
 {
+    static readonly SYMBOL = SymbolUtil.forClass(ScheduledTaskModule);
+
     /**
      * The method that gets executed periodically or on start, depending on the module's configuration.
      *

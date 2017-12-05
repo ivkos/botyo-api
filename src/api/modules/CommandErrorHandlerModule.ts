@@ -1,6 +1,7 @@
 import { Module } from "./Module";
 import { Message } from "../ChatApi";
 import { CommandModule } from "./CommandModule";
+import SymbolUtil from "../util/SymbolUtil";
 
 /**
  * Handles failures caused by a command's execution.
@@ -12,6 +13,8 @@ import { CommandModule } from "./CommandModule";
  */
 export abstract class CommandErrorHandlerModule extends Module
 {
+    static readonly SYMBOL = SymbolUtil.forClass(CommandErrorHandlerModule);
+
     /**
      * This method gets executed when a command invoked by a participant fails.
      *

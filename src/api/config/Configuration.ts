@@ -1,8 +1,12 @@
+import SymbolUtil from "../util/SymbolUtil";
+
 /**
  * @since 2.0.0
  */
 export abstract class Configuration
 {
+    static readonly SYMBOL = SymbolUtil.forClass(Configuration);
+
     /**
      * Returns the configuration indicated by its property
      *

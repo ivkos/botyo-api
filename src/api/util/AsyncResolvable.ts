@@ -1,3 +1,5 @@
+import SymbolUtil from "./SymbolUtil";
+
 export interface AsyncResolvableNewable<T>
 {
     new (...args: any[]): T;
@@ -19,6 +21,8 @@ export type AsyncResolvableServiceIdentifier<T> = (
  */
 export abstract class AsyncResolvable<R>
 {
+    static readonly SYMBOL = SymbolUtil.forClass(AsyncResolvable);
+
     /**
      * Returns the value this resolves into.
      *

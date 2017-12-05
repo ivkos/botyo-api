@@ -1,11 +1,14 @@
 import { Configuration } from "./Configuration";
 import { ModuleConstructor } from "../util/ModuleConstructor";
+import SymbolUtil from "../util/SymbolUtil";
 
 /**
  * @since 2.0.0
  */
 export abstract class ModuleConfiguration extends Configuration
 {
+    static readonly SYMBOL = SymbolUtil.forClass(ModuleConfiguration);
+
     protected abstract readonly moduleConstructor: ModuleConstructor;
 
     protected resolveModulePropertyPath(property?: string)

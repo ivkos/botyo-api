@@ -1,10 +1,13 @@
 import { FacebookId, Message } from "../ChatApi";
+import SymbolUtil from "./SymbolUtil";
 
 /**
  * @since 2.0.0
  */
 export abstract class ChatThreadUtils
 {
+    static readonly SYMBOL = SymbolUtil.forClass(ChatThreadUtils);
+
     /**
      * Returns the chat-thread-specific nickname of a participant, given a threadId and a participantId.
      *

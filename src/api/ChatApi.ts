@@ -1,3 +1,5 @@
+import SymbolUtil from "./util/SymbolUtil";
+
 // TODO Define
 export type Message = any;
 
@@ -84,6 +86,8 @@ export interface MessageListener
 
 export abstract class ChatApi
 {
+    static readonly SYMBOL = SymbolUtil.forClass(ChatApi);
+
     /**
      * Sends a message.
      *

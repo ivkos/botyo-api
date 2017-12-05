@@ -1,10 +1,13 @@
 import { ModuleAwareRuntime } from "../util/ModuleAwareRuntime";
+import SymbolUtil from "../util/SymbolUtil";
 
 /**
  * @since 2.0.0
  */
 export class Module
 {
+    static readonly SYMBOL = SymbolUtil.forClass(Module);
+
     private readonly runtime: ModuleAwareRuntime;
 
     /**

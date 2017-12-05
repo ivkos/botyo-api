@@ -4,12 +4,15 @@ import { ChatApi } from "../ChatApi";
 import { ContextualizableModuleConfiguration } from "../config/ContextualizableModuleConfiguration";
 import { ModuleConstructor } from "./ModuleConstructor";
 import { ChatThreadUtils } from "./ChatThreadUtils";
+import SymbolUtil from "./SymbolUtil";
 
 /**
  * @since 2.0.0
  */
 export class ModuleAwareRuntime
 {
+    static readonly SYMBOL = SymbolUtil.forClass(ModuleAwareRuntime);
+
     constructor(private readonly moduleConstructor: ModuleConstructor,
                 private readonly chatApi: ChatApi,
                 private readonly applicationConfiguration: ApplicationConfiguration,

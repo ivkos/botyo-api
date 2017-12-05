@@ -1,10 +1,13 @@
 import { ModuleConfiguration } from "./ModuleConfiguration";
+import SymbolUtil from "../util/SymbolUtil";
 
 /**
  * @since 2.0.0
  */
 export abstract class MessageContextSwitcher
 {
+    static readonly SYMBOL = SymbolUtil.forClass(MessageContextSwitcher);
+
     /**
      * Returns module configuration in the context of the chat thread the message was received from.
      *

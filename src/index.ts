@@ -17,5 +17,6 @@ export * from "./api/util/Logger"
 export * from "./api/util/ModuleAwareRuntime"
 export * from "./api/util/ModuleConstructor"
 export * from "./api/util/MongoDb"
+export * from "./api/util/SymbolUtil"
 
 export * from "./api/ChatApi"
