@@ -9,6 +9,14 @@ export abstract class ChatThreadUtils
     static readonly SYMBOL = SymbolUtil.forClass(ChatThreadUtils);
 
     /**
+     * Returns a list of chat thread IDs the bot is configured to listen to.
+     *
+     * @return {FacebookId[]}
+     * @since 2.0.0
+     */
+    abstract getChatThreadIds(): FacebookId[];
+
+    /**
      * Returns the chat-thread-specific nickname of a participant, given a threadId and a participantId.
      *
      * @param {FacebookId} threadId
