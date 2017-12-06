@@ -62,7 +62,7 @@ export type ThreadInfo = {
     nicknames: { [index: string]: string },
 }
 
-export const enum Reaction
+export enum Reaction
 {
     Love = ":love:",
     Haha = ":haha:",
