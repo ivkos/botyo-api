@@ -8,7 +8,7 @@ export class Module
 {
     static readonly SYMBOL = SymbolUtil.forClass(Module);
 
-    private readonly runtime: ModuleAwareRuntime;
+    protected readonly runtime: ModuleAwareRuntime;
 
     /**
      * Returns a runtime object corresponding to the current module.
