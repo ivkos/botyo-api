@@ -191,4 +191,14 @@ export abstract class ChatApi
      * @since 2.0.0
      */
     abstract async setMessageReaction(messageId: string, reaction: Reaction | string): Promise<void>;
+
+    /**
+     * Resolves the URL to the full-size photo, given its ID. This function is useful for retrieving the full-size
+     * photo URL of image attachments in messages, returned by getThreadHistory.
+     *
+     * @param {FacebookId} photoId
+     * @return {Promise<string>}
+     * @since 2.0.0
+     */
+    abstract async resolvePhotoUrl(photoId: FacebookId): Promise<string>;
 }
