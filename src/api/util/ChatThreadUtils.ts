@@ -1,20 +1,23 @@
-import { FacebookId, Message } from "../ChatApi";
-import SymbolUtil from "./SymbolUtil";
+import { BotyoSymbol } from "./BotyoSymbol";
+import { FacebookId, Message } from "../chatapi/ChatApiTypes";
+
+export namespace ChatThreadUtils
+{
+    export const SYMBOL = BotyoSymbol.forName("ChatThreadUtils");
+}
 
 /**
  * @since 2.0.0
  */
-export abstract class ChatThreadUtils
+export interface ChatThreadUtils
 {
-    static readonly SYMBOL = SymbolUtil.forClass(ChatThreadUtils);
-
     /**
      * Returns a list of chat thread IDs the bot is configured to listen to.
      *
      * @return {FacebookId[]}
      * @since 2.0.0
      */
-    abstract getChatThreadIds(): FacebookId[];
+    getChatThreadIds(): FacebookId[];
 
     /**
      * Returns the chat-thread-specific nickname of a participant, given a threadId and a participantId.
@@ -24,7 +27,7 @@ export abstract class ChatThreadUtils
      * @return {string} the nickname, or undefined if it's not set
      * @since 2.0.0
      */
-    abstract getNickname(threadId: FacebookId, participantId: FacebookId): string | undefined;
+    getNickname(threadId: FacebookId, participantId: FacebookId): string | undefined;
 
     /**
      * Returns the chat-thread-specific nickname of the participant that sent the supplied message.
@@ -33,10 +36,7 @@ export abstract class ChatThreadUtils
      * @return {string | undefined} the nickname, or undefined if it's not set
      * @since 2.0.0
      */
-    getNicknameByMessage(msg: Message): string | undefined
-    {
-        return this.getNickname(msg.threadID, msg.senderID);
-    }
+    getNicknameByMessage(msg: Message): string | undefined;
 
     /**
      * Returns the user's full name. The user must be a part of at least one chat thread Botyo listens to.
@@ -45,7 +45,7 @@ export abstract class ChatThreadUtils
      * @return {string}
      * @since 2.0.0
      */
-    abstract getName(userId: FacebookId): string;
+    getName(userId: FacebookId): string;
 
     /**
      * Return the full name of the user that sent the supplied message. The user must be a part of at least one chat
@@ -55,10 +55,7 @@ export abstract class ChatThreadUtils
      * @return {string}
      * @since 2.0.0
      */
-    getNameByMessage(msg: Message): string
-    {
-        return this.getName(msg.senderID);
-    }
+    getNameByMessage(msg: Message): string;
 
     /**
      * Returns the user's first name.
@@ -67,7 +64,7 @@ export abstract class ChatThreadUtils
      * @return {string}
      * @since 2.0.0
      */
-    abstract getFirstName(userId: FacebookId): string;
+    getFirstName(userId: FacebookId): string;
 
     /**
      * Returns the first name of the user that sent the supplied message. The user must be a part of at least one chat
@@ -77,10 +74,7 @@ export abstract class ChatThreadUtils
      * @return {string}
      * @since 2.0.0
      */
-    getFirstNameByMessage(msg: Message): string
-    {
-        return this.getFirstName(msg.senderID);
-    }
+    getFirstNameByMessage(msg: Message): string;
 
     /**
      * Returns the ID of the user that is the addressee of an action. For example, in the command '#quote Jeff' the
@@ -95,7 +89,7 @@ export abstract class ChatThreadUtils
      *                                similarity threshold
      * @since 2.0.0
      */
-    abstract getParticipantIdByAddressee(threadId: FacebookId, addressee: string): FacebookId | undefined;
+    getParticipantIdByAddressee(threadId: FacebookId, addressee: string): FacebookId | undefined;
 
     /**
      * Executes on the supplied consumer on each participant in each chat thread.
@@ -104,11 +98,8 @@ export abstract class ChatThreadUtils
      * @return {void | Promise<void>}
      * @since 2.0.0
      */
-    abstract forEachParticipantInEachChatThread(consumer: ChatThreadParticipantConsumer): void | Promise<void>;
+    forEachParticipantInEachChatThread(consumer: ChatThreadParticipantConsumer): void | Promise<void>;
 }
-
-export const CONFIG_KEY_CHAT_THREADS = "chat-threads";
-export const CONFIG_KEY_PARTICIPANTS = "participants";
 
 export type ConfigurationParticipantObject = {
     [index: string]: any,

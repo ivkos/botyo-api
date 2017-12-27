@@ -14,9 +14,9 @@ The **Botyo API** module is a collection of types, interfaces and classes for de
 ## Example
 ### TypeScript
 ```ts
-import { CommandModule, Message } from "botyo-api";
+import { AbstractCommandModule, Message } from "botyo-api";
 
-export default class HelloCommand extends CommandModule
+export default class HelloCommand extends AbstractCommandModule
 {
     getCommand(): string
     {
@@ -47,9 +47,9 @@ export default class HelloCommand extends CommandModule
 
 ### JavaScript
 ```js
-const CommandModule = require('botyo-api').CommandModule;
+const AbstractCommandModule = require('botyo-api').AbstractCommandModule;
 
-class HelloCommand extends CommandModule
+class HelloCommand extends AbstractCommandModule
 {
     getCommand() {
         return "hello";

@@ -1,15 +1,19 @@
 import { Configuration } from "./Configuration";
 import { ContextualizableModuleConfiguration } from "./ContextualizableModuleConfiguration";
-import { ModuleConstructor } from "../util/ModuleConstructor";
-import SymbolUtil from "../util/SymbolUtil";
+import { Module } from "../modules/Module";
+import { Constructor } from "../util/Constructor";
+import { BotyoSymbol } from "../util/BotyoSymbol";
+
+export namespace ApplicationConfiguration
+{
+    export const SYMBOL = BotyoSymbol.forName("ApplicationConfiguration")
+}
 
 /**
  * @since 2.0.0
  */
-export abstract class ApplicationConfiguration extends Configuration
+export interface ApplicationConfiguration extends Configuration
 {
-    static readonly SYMBOL = SymbolUtil.forClass(ApplicationConfiguration);
-
     /**
      * Returns the configuration for the specified type of module
      *
@@ -17,5 +21,5 @@ export abstract class ApplicationConfiguration extends Configuration
      * @return {ContextualizableModuleConfiguration}
      * @since 2.0.0
      */
-    abstract forModule(module: ModuleConstructor): ContextualizableModuleConfiguration;
+    forModule(module: Constructor<Module>): ContextualizableModuleConfiguration;
 }

@@ -1,12 +1,8 @@
-import SymbolUtil from "../util/SymbolUtil";
-
 /**
  * @since 2.0.0
  */
-export abstract class Configuration
+export interface Configuration
 {
-    static readonly SYMBOL = SymbolUtil.forClass(Configuration);
-
     /**
      * Returns the configuration indicated by its property
      *
@@ -15,7 +11,7 @@ export abstract class Configuration
      * @throws {Error} if there is no such configuration property
      * @since 2.0.0
      */
-    abstract getProperty<T = any>(property: string): T;
+    getProperty<T = any>(property: string): T;
 
     /**
      * Returns the configuration indicated by its 'property' if it exists, or a default value passed as 'other'
@@ -25,10 +21,7 @@ export abstract class Configuration
      * @return {*}
      * @since 2.0.0
      */
-    getOrElse<O, T = any>(property: string, other: O): T | O
-    {
-        return this.hasProperty(property) ? this.getProperty(property) : other;
-    }
+    getOrElse<O, T = any>(property: string, other: O): T | O;
 
     /**
      * Returns true if the property is defined in the configuration file, otherwise false
@@ -37,7 +30,7 @@ export abstract class Configuration
      * @return {boolean} true if the property is defined in the configuration file, otherwise false
      * @since 2.0.0
      */
-    abstract hasProperty(property: string): boolean;
+    hasProperty(property: string): boolean;
 
     /**
      * Assigns a value to a property.
@@ -46,7 +39,7 @@ export abstract class Configuration
      * @param {*} value
      * @since 2.0.0
      */
-    abstract setProperty<T = any>(property: string, value: T): void;
+    setProperty<T = any>(property: string, value: T): void;
 
     /**
      * Returns the raw object holding the configuration.
@@ -54,5 +47,5 @@ export abstract class Configuration
      * @return {{}}
      * @since 2.0.0
      */
-    abstract getRawObject(): {};
+    getRawObject(): {};
 }

@@ -1,15 +1,12 @@
 import { Module } from "./Module";
-import SymbolUtil from "../util/SymbolUtil";
 
 /**
  * Defines a task that is executed periodically or upon the start of the bot.
  *
  * @since 2.0.0
  */
-export abstract class ScheduledTaskModule extends Module
+export interface ScheduledTaskModule extends Module
 {
-    static readonly SYMBOL = SymbolUtil.forClass(ScheduledTaskModule);
-
     /**
      * The method that gets executed periodically or on start, depending on the module's configuration.
      *
@@ -17,7 +14,7 @@ export abstract class ScheduledTaskModule extends Module
      * @abstract
      * @since 2.0.0
      */
-    abstract async execute(): Promise<void>;
+    execute(): Promise<void>;
 
     /**
      * Returns the schedule that specifies when this commands gets executed. This must be a cron-like string or a
@@ -26,10 +23,7 @@ export abstract class ScheduledTaskModule extends Module
      * @return {string | number}
      * @since 2.0.0
      */
-    getSchedule(): string | number
-    {
-        return this.getRuntime().getConfiguration().getProperty(ScheduledTaskModule.CONFIG_KEY_SCHEDULE);
-    }
+    getSchedule(): string | number;
 
     /**
      * Returns true if the scheduled task should run when the bot starts, or false otherwise.
@@ -37,11 +31,5 @@ export abstract class ScheduledTaskModule extends Module
      * @return {boolean}
      * @since 2.0.0
      */
-    shouldExecuteOnStart(): boolean
-    {
-        return this.getRuntime().getConfiguration().getOrElse(ScheduledTaskModule.CONFIG_KEY_EXECUTE_ON_START, false);
-    }
-
-    static readonly CONFIG_KEY_EXECUTE_ON_START = "executeOnStart";
-    static readonly CONFIG_KEY_SCHEDULE = "schedule";
+    shouldExecuteOnStart(): boolean;
 }

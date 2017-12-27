@@ -1,33 +1,29 @@
 import { ModuleAwareRuntime } from "../util/ModuleAwareRuntime";
-import SymbolUtil from "../util/SymbolUtil";
 
 /**
  * @since 2.0.0
  */
-export class Module
+export interface Module
 {
-    static readonly SYMBOL = SymbolUtil.forClass(Module);
-
-    protected readonly runtime: ModuleAwareRuntime;
-
     /**
      * Returns a runtime object corresponding to the current module.
      *
      * @return {ModuleAwareRuntime}
      * @since 2.0.0
      */
-    getRuntime(): ModuleAwareRuntime
-    {
-        return this.runtime;
-    };
+    getRuntime(): ModuleAwareRuntime;
+
+    /**
+     * Gets called when the bot starts listening.
+     *
+     * @since 2.0.0
+     */
+    onListen(): Promise<void>;
 
     /**
      * Gets called when the bot is shutting down.
      *
      * @since 2.0.0
      */
-    async onShutdown(): Promise<void>
-    {
-        return Promise.resolve();
-    };
+    onShutdown(): Promise<void>;
 }

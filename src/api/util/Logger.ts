@@ -1,4 +1,5 @@
-import SymbolUtil from "./SymbolUtil";
+import { LoggerInstance } from "winston";
+import { BotyoSymbol } from "./BotyoSymbol";
 
 /**
  * Service identifier for the logger.
@@ -6,4 +7,8 @@ import SymbolUtil from "./SymbolUtil";
  * @type {symbol}
  * @since 2.0.0
  */
-export const Logger = SymbolUtil.forName("Logger");
+export type Logger = LoggerInstance;
+export namespace Logger
+{
+    export const SYMBOL = BotyoSymbol.forName("Logger");
+}

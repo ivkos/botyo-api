@@ -1,6 +1,5 @@
 import { Module } from "./Module";
-import { Message } from "../ChatApi";
-import SymbolUtil from "../util/SymbolUtil";
+import { Message } from "../chatapi/ChatApiTypes";
 
 /**
  * Defines a command that users can send to the bot. Commands must begin with a prefix that can be configured
@@ -10,10 +9,8 @@ import SymbolUtil from "../util/SymbolUtil";
  *
  * @since 2.0.0
  */
-export abstract class CommandModule extends Module
+export interface CommandModule extends Module
 {
-    static readonly SYMBOL = SymbolUtil.forClass(CommandModule);
-
     /**
      * Returns the command this module acts on. This string should not include the command prefix.
      *
@@ -21,7 +18,7 @@ export abstract class CommandModule extends Module
      * @abstract
      * @since 2.0.0
      */
-    abstract getCommand(): string
+    getCommand(): string;
 
     /**
      * Returns the description of the command.
@@ -30,7 +27,7 @@ export abstract class CommandModule extends Module
      * @abstract
      * @since 2.0.0
      */
-    abstract getDescription(): string
+    getDescription(): string;
 
     /**
      * Returns a user-friendly description of the arguments this command accepts.
@@ -40,7 +37,7 @@ export abstract class CommandModule extends Module
      * @abstract
      * @since 2.0.0
      */
-    abstract getUsage(): string
+    getUsage(): string;
 
     /**
      * Validates the message containing the command. If this returns true, the execute() method will be invoked.
@@ -53,7 +50,7 @@ export abstract class CommandModule extends Module
      * @abstract
      * @since 2.0.0
      */
-    abstract validate(msg: Message, args: string): boolean
+    validate(msg: Message, args: string): boolean;
 
     /**
      * The method that gets executed when the received message is a valid command.
@@ -65,5 +62,5 @@ export abstract class CommandModule extends Module
      * @abstract
      * @since 2.0.0
      */
-    abstract async execute(msg: Message, args: string): Promise<any>
+    execute(msg: Message, args: string): Promise<any>;
 }

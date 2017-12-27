@@ -1,15 +1,9 @@
-import { ModuleConfiguration } from "./ModuleConfiguration";
 import { MessageContextSwitcher } from "./MessageContextSwitcher";
-import { FacebookId, Message } from "../ChatApi";
-import SymbolUtil from "../util/SymbolUtil";
+import { ModuleConfiguration } from "./ModuleConfiguration";
+import { FacebookId, Message } from "../chatapi/ChatApiTypes";
 
-/**
- * @since 2.0.0
- */
-export abstract class ContextualizableModuleConfiguration extends ModuleConfiguration
+export interface ContextualizableModuleConfiguration extends ModuleConfiguration
 {
-    static readonly SYMBOL = SymbolUtil.forClass(ContextualizableModuleConfiguration);
-
     /**
      * Returns a configuration context switcher, specific for the supplied message context.
      *
@@ -17,7 +11,7 @@ export abstract class ContextualizableModuleConfiguration extends ModuleConfigur
      * @return {MessageContextSwitcher}
      * @since 2.0.0
      */
-    abstract inContext(messageContext: Message): MessageContextSwitcher;
+    inContext(messageContext: Message): MessageContextSwitcher;
 
     /**
      * Returns the module configuration in the context of the specified chat thread ID.
@@ -26,8 +20,5 @@ export abstract class ContextualizableModuleConfiguration extends ModuleConfigur
      * @return {ModuleConfiguration}
      * @since 2.0.0
      */
-    inContextOfChatThread(chatThreadId: FacebookId): ModuleConfiguration
-    {
-        return this.inContext({ threadID: chatThreadId }).ofChatThread();
-    }
+    inContextOfChatThread(chatThreadId: FacebookId): ModuleConfiguration;
 }
