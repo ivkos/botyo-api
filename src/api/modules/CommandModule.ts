@@ -12,13 +12,13 @@ import { Message } from "../chatapi/ChatApiTypes";
 export interface CommandModule extends Module
 {
     /**
-     * Returns the command this module acts on. This string should not include the command prefix.
+     * Returns the command(s) this module acts on. String(s) should not include the command prefix.
      *
-     * @return {string} the command
+     * @return {string|string[]} the command(s)
      * @abstract
      * @since 2.0.0
      */
-    getCommand(): string;
+    getCommand(): string | string[];
 
     /**
      * Returns the description of the command.

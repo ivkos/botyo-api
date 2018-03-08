@@ -4,7 +4,7 @@ import { Message } from "../../chatapi/ChatApiTypes";
 
 export abstract class AbstractCommandModule extends AbstractModule implements CommandModule
 {
-    abstract getCommand(): string;
+    abstract getCommand(): string | string[];
 
     abstract getDescription(): string;
 
