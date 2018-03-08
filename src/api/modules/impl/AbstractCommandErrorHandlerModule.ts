@@ -5,5 +5,5 @@ import { Message } from "../../chatapi/ChatApiTypes";
 
 export abstract class AbstractCommandErrorHandlerModule extends AbstractModule implements CommandErrorHandlerModule
 {
-    abstract async handle(err: Error, message: Message, commandModule: CommandModule): Promise<void>
+    abstract async handle(err: Error, message: Message, commandModule: CommandModule): Promise<any>
 }

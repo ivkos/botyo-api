@@ -27,5 +27,5 @@ export interface CommandErrorHandlerModule extends Module
      * @abstract
      * @since 2.0.0
      */
-    handle(err: Error, message: Message, commandModule: CommandModule): Promise<void>;
+    handle(err: Error, message: Message, commandModule: CommandModule): Promise<any>;
 }

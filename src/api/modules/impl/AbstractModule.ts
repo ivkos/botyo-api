@@ -10,12 +10,12 @@ export class AbstractModule implements Module
         return this.runtime;
     }
 
-    async onListen(): Promise<void>
+    async onListen(): Promise<any>
     {
         return Promise.resolve();
     }
 
-    async onShutdown(): Promise<void>
+    async onShutdown(): Promise<any>
     {
         return Promise.resolve();
     }

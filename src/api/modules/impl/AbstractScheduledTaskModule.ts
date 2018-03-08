@@ -4,7 +4,7 @@ import { Constants } from "../../util/Constants";
 
 export abstract class AbstractScheduledTaskModule extends AbstractModule implements ScheduledTaskModule
 {
-    abstract async execute(): Promise<void>;
+    abstract async execute(): Promise<any>;
 
     getSchedule(): string | number
     {

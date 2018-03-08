@@ -18,12 +18,12 @@ export interface Module
      *
      * @since 2.0.0
      */
-    onListen(): Promise<void>;
+    onListen(): Promise<any>;
 
     /**
      * Gets called when the bot is shutting down.
      *
      * @since 2.0.0
      */
-    onShutdown(): Promise<void>;
+    onShutdown(): Promise<any>;
 }
