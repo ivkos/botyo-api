@@ -1,6 +1,6 @@
 {
   "name": "botyo-api",
-  "version": "2.0.0-alpha.34",
+  "version": "2.0.0-alpha.35",
   "description": "Botyo API",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -33,6 +33,6 @@
     "typescript": "^2.6.1"
   },
   "engines": {
-    "node": ">=6.5.0"
+    "node": ">=8.3.0"
   }
 }
