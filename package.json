@@ -1,6 +1,6 @@
 {
   "name": "botyo-api",
-  "version": "2.0.0-alpha.35",
+  "version": "2.0.0-alpha.37",
   "description": "Botyo API",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -24,13 +24,13 @@
   },
   "homepage": "https://github.com/ivkos/botyo-api#readme",
   "dependencies": {
-    "@types/mongodb": "^2.2.18",
-    "@types/winston": "^2.3.7"
+    "@types/mongodb": "^2.2.20",
+    "@types/winston": "^2.3.9"
   },
   "devDependencies": {
     "glob": "^7.1.2",
     "rimraf": "^2.6.2",
-    "typescript": "^2.6.1"
+    "typescript": "^2.9.1"
   },
   "engines": {
     "node": ">=8.3.0"
