@@ -110,7 +110,7 @@ export type ConfigurationParticipantObject = {
     nickname?: string,
     isAdmin?: boolean,
     aliases?: string[],
-    overrides?: {}
+    overrides?: object
 };
 
 export type ConfigurationParticipantsObject = { [index: string]: ConfigurationParticipantObject };
@@ -118,7 +118,7 @@ export type ConfigurationParticipantsObject = { [index: string]: ConfigurationPa
 export type ConfigurationChatThreadObject = {
     name?: string,
     participants: ConfigurationParticipantsObject,
-    overrides?: {},
+    overrides?: object,
 }
 
 export type ConfigurationChatThreadsObject = { [index: string]: ConfigurationChatThreadObject }

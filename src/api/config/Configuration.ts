@@ -47,5 +47,5 @@ export interface Configuration
      * @return {{}}
      * @since 2.0.0
      */
-    getRawObject(): {};
+    getRawObject(): object;
 }
