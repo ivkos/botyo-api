@@ -1,3 +1,5 @@
+import { Readable } from "stream";
+
 /**
  * Defines a message object.
  *
@@ -20,7 +22,7 @@ export type Message = {
  * Defines an outgoing message.
  */
 export type OutgoingMessage = {
-    attachment?: ReadableStream | ReadableStream[]
+    attachment?: ReadableStream | ReadableStream[] | Readable | Readable[]
     url?: string
 
     sticker?: string
