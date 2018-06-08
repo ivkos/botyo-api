@@ -11,6 +11,11 @@ The **Botyo API** module is a collection of types, interfaces and classes for de
 ## Install
 `npm install --save botyo-api`
 
+## Documentation
+
+The documentation for the Botyo API is available here:
+* [Botyo API Documentation](https://ivkos.github.io/botyo-api)
+
 ## Example
 ### TypeScript
 ```ts

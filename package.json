@@ -7,7 +7,7 @@
   "scripts": {
     "prebuild": "rimraf build/",
     "build": "tsc -p .",
-    "docs": "typedoc --out docs/ --mode file --name \"Botyo API\" --gaID UA-38096478-8",
+    "docs": "typedoc --out docs/ --mode file --name \"Botyo API Documentation\" --gaID UA-38096478-8",
     "prepublish": "npm run build"
   },
   "repository": {
