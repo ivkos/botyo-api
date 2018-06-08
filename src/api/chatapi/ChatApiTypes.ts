@@ -1,5 +1,36 @@
-// TODO Define
-export type Message = any;
+/**
+ * Defines a message object.
+ *
+ * @see https://github.com/Schmavery/facebook-chat-api/blob/master/DOCS.md#apilistencallback
+ */
+export type Message = {
+    [index: string]: any
+    attachments: object[]
+    body: string
+    isGroup: boolean
+    mentions: object[]
+    messageID: string
+    senderID: string
+    threadID: FacebookId
+    isUnread: boolean
+    type: string
+};
+
+/**
+ * Defines an outgoing message.
+ */
+export type OutgoingMessage = {
+    attachment?: ReadableStream | ReadableStream[]
+    url?: string
+
+    sticker?: string
+    emoji?: string
+    emojiSize?: "small" | "medium" | "large"
+
+    body?: string
+
+    mentions?: object[]
+}
 
 export type FacebookId = string | number;
 

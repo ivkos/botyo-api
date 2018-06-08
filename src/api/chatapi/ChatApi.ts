@@ -1,7 +1,7 @@
 import {
     EndTypingIndicatorFunction,
     FacebookId,
-    Message,
+    Message, OutgoingMessage,
     ThreadInfo,
     UserIdSearchResult,
     UserInfoResult
@@ -20,11 +20,11 @@ export interface ChatApi
      * Sends a message.
      *
      * @param {FacebookId} threadId the thread ID
-     * @param {string|object} message plain string message or message object
+     * @param {string|OutgoingMessage} message plain string message or message object
      * @return {Promise<Message>} promise with message object representing the sent message
      * @since 2.0.0
      */
-    sendMessage(threadId: FacebookId, message: Message | string): Promise<Message>;
+    sendMessage(threadId: FacebookId, message: OutgoingMessage | string): Promise<Message>;
 
     /**
      * Changes the chat's color.
